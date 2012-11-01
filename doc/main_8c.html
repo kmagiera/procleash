@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>procleash: Dokumentacja pliku src/main.c</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Wygenerowano przez Doxygen 1.5.4 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+    <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+    <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+  </ul>
+</div>
+<h1>Dokumentacja pliku src/main.c</h1><code>#include &lt;stdio.h&gt;</code><br>
+<code>#include &lt;stdlib.h&gt;</code><br>
+<code>#include &lt;string.h&gt;</code><br>
+<code>#include &lt;linux/unistd.h&gt;</code><br>
+<code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &lt;sys/stat.h&gt;</code><br>
+<code>#include &lt;unistd.h&gt;</code><br>
+<code>#include &quot;<a class="el" href="options_8h.html">options.h</a>&quot;</code><br>
+<code>#include &quot;<a class="el" href="procleash_8h.html">procleash.h</a>&quot;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Struktury danych</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsyscall.html">syscall</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#33abf350aae0212c85a5903e41764025">display_version</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#98a1077c2f2594455e3b492593d59f8f">a_configure</a> (struct <a class="el" href="structoption__arg.html">option_arg</a> *argv, size_t argc, struct <a class="el" href="structprocl__leash.html">procl_leash</a> *leash)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7f1d2c3af172ddc77e1495272854606">f_configure</a> (const char *fname, struct <a class="el" href="structprocl__leash.html">procl_leash</a> *leash)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#681e49beb697d68b81ad7f54bcfe8418">syscall_toi</a> (const char *<a class="el" href="structsyscall.html">syscall</a>)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#28951c9c3d3bf015857f70dbba163f19">display_help</a> (char *pname)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Opis szczegółowy</h2>
+<dl class="version" compact><dt><b>Wersja:</b></dt><dd>1.0 </dd></dl>
+<dl class="author" compact><dt><b>Autor:</b></dt><dd>Krzysztof Magiera &lt;<a href="mailto:magiera@student.agh.edu.pl">magiera@student.agh.edu.pl</a>&gt;</dd></dl>
+Tool do obslugi biblioteki procleash - uruchamiania programów na smyczy. <hr><h2>Dokumentacja funkcji</h2>
+<a class="anchor" name="98a1077c2f2594455e3b492593d59f8f"></a><!-- doxytag: member="main.c::a_configure" ref="98a1077c2f2594455e3b492593d59f8f" args="(struct option_arg *argv, size_t argc, struct procl_leash *leash)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void a_configure           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structoption__arg.html">option_arg</a> *&nbsp;</td>
+          <td class="paramname"> <em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>leash</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Czyta konfiguracje ze struktury argumentow 
+</div>
+</div><p>
+<a class="anchor" name="28951c9c3d3bf015857f70dbba163f19"></a><!-- doxytag: member="main.c::display_help" ref="28951c9c3d3bf015857f70dbba163f19" args="(char *pname)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_help           </td>
+          <td>(</td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>pname</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Wyświetla pomoc 
+</div>
+</div><p>
+<a class="anchor" name="33abf350aae0212c85a5903e41764025"></a><!-- doxytag: member="main.c::display_version" ref="33abf350aae0212c85a5903e41764025" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void display_version           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Wyswietla informacje o wersji 
+</div>
+</div><p>
+<a class="anchor" name="a7f1d2c3af172ddc77e1495272854606"></a><!-- doxytag: member="main.c::f_configure" ref="a7f1d2c3af172ddc77e1495272854606" args="(const char *fname, struct procl_leash *leash)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void f_configure           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>fname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>leash</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Czyta konfiguracje z pliku. Plik konfiguracyjny moze skladac sie z nastepujacych elementow:<p>
+# - na poczatku linii oznacza, ze dana linia nie jest interpretowana<p>
+order deny-allow - oznacza, ze przyjmujemy kolejnosc deny-allow<p>
+allow name [times] - zezwalamy funkcje systemowa name times razy<p>
+allow num [times] - podobnie, ale podajemy numer funkcji systemowej<p>
+deny num - zabraniamy funkcje o danym numerze<p>
+deny name - zabraniamy funkcje identyfikowana przez nazwe name<p>
+timelimit num - limit czasu<p>
+stacklimit num - limit na stos<p>
+outputlimit num - limit na wyjscie<p>
+memlimit num - limit czasu 
+</div>
+</div><p>
+<a class="anchor" name="681e49beb697d68b81ad7f54bcfe8418"></a><!-- doxytag: member="main.c::syscall_toi" ref="681e49beb697d68b81ad7f54bcfe8418" args="(const char *syscall)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int syscall_toi           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>syscall</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Rozpoznaje numer funkcji systemowej po nazwie 
+</div>
+</div><p>
+<hr size="1"><address style="text-align: right;"><small>Wygenerowano Tue Jan 22 22:33:19 2008 dla procleash programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.4 </small></address>
+</body>
+</html>

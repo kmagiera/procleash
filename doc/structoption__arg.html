@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>procleash: Dokumentacja struktury option_arg</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Wygenerowano przez Doxygen 1.5.4 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+    <li class="current"><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+    <li><a href="files.html"><span>Pliki</span></a></li>
+  </ul>
+</div>
+<div class="tabs">
+  <ul>
+    <li><a href="annotated.html"><span>Struktury&nbsp;danych</span></a></li>
+    <li><a href="functions.html"><span>Pola&nbsp;danych</span></a></li>
+  </ul>
+</div>
+<h1>Dokumentacja struktury option_arg</h1><!-- doxytag: class="option_arg" --><code>#include &lt;options.h&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Pola danych</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__arg.html#9c58d15ba0fbfed24a99e2e8586c308e">argtype</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap>union {</td></tr>
+
+<tr><td class="memItemLeft" nowrap>&nbsp;&nbsp;&nbsp;uint8_t&nbsp;&nbsp;&nbsp;<a class="el" href="structoption__arg.html#5a003f345f24c2d2a5ba9956478b4a61">arg</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap>&nbsp;&nbsp;&nbsp;const char *&nbsp;&nbsp;&nbsp;<a class="el" href="structoption__arg.html#012202aae70458068ff68f7d4920a974">strarg</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap valign="top">}&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__arg.html#de46e06c46cb275e80144df2c9e715e2">argument</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__arg.html#fa79f770e5e215182c49ffd02e7498a3">event</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint8_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__arg.html#380597fb55a2c4777edbc66d09fc8803">revent</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__arg.html#500a674fa39fc67b38bdcb31522900f1">value</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Opis szczegółowy</h2>
+Reprezentuje argumenty. Argumenty moga byc dlugie (takie po podwujnej kresce) lub krotkie (takie po pojedynczej kresce) Pola: argtype - OT_LONG dla argumentow dlugich, OT_SHORT dla krotkich argument - dla krotkich jest tam pojedynczy znak, dla dlugich lancuch znakow event - flaga ze zdarzeniami (zdarzenia z option_event) revent - pole z wynikami przetowrzenia (opcjie z option_revent) value - wartosc parametru <hr><h2>Dokumentacja pól</h2>
+<a class="anchor" name="9c58d15ba0fbfed24a99e2e8586c308e"></a><!-- doxytag: member="option_arg::argtype" ref="9c58d15ba0fbfed24a99e2e8586c308e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="structoption__arg.html#9c58d15ba0fbfed24a99e2e8586c308e">option_arg::argtype</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+typ argumentu (dlugi albo krotki) 
+</div>
+</div><p>
+<a class="anchor" name="5a003f345f24c2d2a5ba9956478b4a61"></a><!-- doxytag: member="option_arg::arg" ref="5a003f345f24c2d2a5ba9956478b4a61" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="structoption__arg.html#5a003f345f24c2d2a5ba9956478b4a61">option_arg::arg</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+argument krotki - jedna literka 
+</div>
+</div><p>
+<a class="anchor" name="012202aae70458068ff68f7d4920a974"></a><!-- doxytag: member="option_arg::strarg" ref="012202aae70458068ff68f7d4920a974" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* <a class="el" href="structoption__arg.html#012202aae70458068ff68f7d4920a974">option_arg::strarg</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+argument dlugi 
+</div>
+</div><p>
+<a class="anchor" name="de46e06c46cb275e80144df2c9e715e2"></a><!-- doxytag: member="option_arg::argument" ref="de46e06c46cb275e80144df2c9e715e2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... }   <a class="el" href="structoption__arg.html#de46e06c46cb275e80144df2c9e715e2">option_arg::argument</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+argument 
+</div>
+</div><p>
+<a class="anchor" name="fa79f770e5e215182c49ffd02e7498a3"></a><!-- doxytag: member="option_arg::event" ref="fa79f770e5e215182c49ffd02e7498a3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="structoption__arg.html#fa79f770e5e215182c49ffd02e7498a3">option_arg::event</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+akcja ktorej oczekujemy na argumencie 
+</div>
+</div><p>
+<a class="anchor" name="380597fb55a2c4777edbc66d09fc8803"></a><!-- doxytag: member="option_arg::revent" ref="380597fb55a2c4777edbc66d09fc8803" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="structoption__arg.html#380597fb55a2c4777edbc66d09fc8803">option_arg::revent</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+wynik 
+</div>
+</div><p>
+<a class="anchor" name="500a674fa39fc67b38bdcb31522900f1"></a><!-- doxytag: member="option_arg::value" ref="500a674fa39fc67b38bdcb31522900f1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="structoption__arg.html#500a674fa39fc67b38bdcb31522900f1">option_arg::value</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+wartosc parametru, lub postfix wyrazenia 
+</div>
+</div><p>
+<hr>Dokumentacja dla tej struktury została wygenerowana z pliku:<ul>
+<li>src/<a class="el" href="options_8h.html">options.h</a></ul>
+<hr size="1"><address style="text-align: right;"><small>Wygenerowano Tue Jan 22 22:33:19 2008 dla procleash programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.4 </small></address>
+</body>
+</html>

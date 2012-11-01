@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>procleash: Dokumentacja pliku src/procleash.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Wygenerowano przez Doxygen 1.5.4 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+    <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+    <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+  </ul>
+</div>
+<h1>Dokumentacja pliku src/procleash.h</h1><code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &lt;stdint.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Struktury danych</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprocl__leash.html">procl_leash</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Wyliczenia</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="procleash_8h.html#791f5327b2ce2c82509c58d621bbe260">procl_flags</a> { <a class="el" href="procleash_8h.html#791f5327b2ce2c82509c58d621bbe260985f7ec745cbcfe5d2e2087eb666b357">PLF_CLOSESTDIN</a> =  1, 
+<a class="el" href="procleash_8h.html#791f5327b2ce2c82509c58d621bbe2606f0bee3bb43e25b646a260e809233883">PLF_CLOSESTDOUT</a> =  1&lt;&lt;1, 
+<a class="el" href="procleash_8h.html#791f5327b2ce2c82509c58d621bbe260a1323e9b46a1036117c008d1727c4e0e">PLF_CLOSESTDERR</a> =  1&lt;&lt;2, 
+<a class="el" href="procleash_8h.html#791f5327b2ce2c82509c58d621bbe260376da13a721ca0dfdd5964621845d375">PLF_TRYCONTINUE</a> =  1&lt;&lt;3
+ }</td></tr>
+
+<tr><td colspan="2"><br><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="procleash_8h.html#65104018b88167439b5ae0d6e0a142da">procl_allow</a> (int <a class="el" href="structsyscall.html">syscall</a>, uint32_t times, struct <a class="el" href="structprocl__leash.html">procl_leash</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="procleash_8h.html#88cdf33c76ef3d167a25d28a9b033ee0">procl_deny</a> (int <a class="el" href="structsyscall.html">syscall</a>, struct <a class="el" href="structprocl__leash.html">procl_leash</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="procleash_8h.html#4fc543f1681658639deafa93000c128f">procl_allowall</a> (struct <a class="el" href="structprocl__leash.html">procl_leash</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="procleash_8h.html#941817c4073adc19fd25cefa2e0b8245">procl_denyall</a> (struct <a class="el" href="structprocl__leash.html">procl_leash</a> *data)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="procleash_8h.html#b678388efe217f95e18812bba2ef4cb9">procleash</a> (const char *path, char *const arg[], struct <a class="el" href="structprocl__leash.html">procl_leash</a> *data)</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Opis szczegółowy</h2>
+<dl class="version" compact><dt><b>Wersja:</b></dt><dd>1.0 </dd></dl>
+<dl class="author" compact><dt><b>Autor:</b></dt><dd>Krzysztof Magiera &lt;<a href="mailto:magiera@student.agh.edu.pl">magiera@student.agh.edu.pl</a>&gt;</dd></dl>
+Biblioteka procleash wspiera uruchamianie procesów "na smyczy" tzn pod ściśle ustaloną ochroną.<p>
+Procesy uruchamiamy za pomocą funkcji procleash, przekazujac odpowiednie parametry odnośnie programu, który uruchamiamy, oraz smycz, która ustala to, co wolno, a czemu nie wolno procesowi działającemu na niej.<p>
+Smyczy możemy określić * Czas trwania naszego programu * Pamiec wirtualna ktora mozemy mu przydzielic * Wielkosc stosu na ktorej moze operowac * Funkcje systemowe ktore moze wykonywac * Krotnosc wywolan funkcji systemowych * i wiele innych ;) <hr><h2>Dokumentacja typów wyliczanych</h2>
+<a class="anchor" name="791f5327b2ce2c82509c58d621bbe260"></a><!-- doxytag: member="procleash.h::procl_flags" ref="791f5327b2ce2c82509c58d621bbe260" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="procleash_8h.html#791f5327b2ce2c82509c58d621bbe260">procl_flags</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Wartości wyliczeń: </b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" name="791f5327b2ce2c82509c58d621bbe260985f7ec745cbcfe5d2e2087eb666b357"></a><!-- doxytag: member="PLF_CLOSESTDIN" ref="791f5327b2ce2c82509c58d621bbe260985f7ec745cbcfe5d2e2087eb666b357" args="" -->PLF_CLOSESTDIN</em>&nbsp;</td><td>
+proces na smyczy bedzie mial zamkniete STDIN </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="791f5327b2ce2c82509c58d621bbe2606f0bee3bb43e25b646a260e809233883"></a><!-- doxytag: member="PLF_CLOSESTDOUT" ref="791f5327b2ce2c82509c58d621bbe2606f0bee3bb43e25b646a260e809233883" args="" -->PLF_CLOSESTDOUT</em>&nbsp;</td><td>
+proces na smyczy bedzie mial zamkniete STDOUT </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="791f5327b2ce2c82509c58d621bbe260a1323e9b46a1036117c008d1727c4e0e"></a><!-- doxytag: member="PLF_CLOSESTDERR" ref="791f5327b2ce2c82509c58d621bbe260a1323e9b46a1036117c008d1727c4e0e" args="" -->PLF_CLOSESTDERR</em>&nbsp;</td><td>
+proces na smyczy bedzie mial zamkniete STDERR </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="791f5327b2ce2c82509c58d621bbe260376da13a721ca0dfdd5964621845d375"></a><!-- doxytag: member="PLF_TRYCONTINUE" ref="791f5327b2ce2c82509c58d621bbe260376da13a721ca0dfdd5964621845d375" args="" -->PLF_TRYCONTINUE</em>&nbsp;</td><td>
+nadzorca nie konczy procesu, gdy ten wywola niepoprawna funkcje systemowa </td></tr>
+</table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Dokumentacja funkcji</h2>
+<a class="anchor" name="65104018b88167439b5ae0d6e0a142da"></a><!-- doxytag: member="procleash.h::procl_allow" ref="65104018b88167439b5ae0d6e0a142da" args="(int syscall, uint32_t times, struct procl_leash *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void procl_allow           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>syscall</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&nbsp;</td>
+          <td class="paramname"> <em>times</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ustawia pozwolenie dla funkcji systemowej <dl compact><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="structsyscall.html">syscall</a></em>&nbsp;</td><td>numer funkcji systemowej </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>times</em>&nbsp;</td><td>liczba zezwolonych wywolan (lub stala PL_UNLIMITED) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>smycz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="4fc543f1681658639deafa93000c128f"></a><!-- doxytag: member="procleash.h::procl_allowall" ref="4fc543f1681658639deafa93000c128f" args="(struct procl_leash *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void procl_allowall           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Ustawia pozwolenie dla wszystkich funkcji systemowych. Nalezy wykonac je przed uzyciem procleash (ewentualnie wykonac allowall). Funckja resetuje flagi na smyczy oraz wszystkie limity <dl compact><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>smycz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="88cdf33c76ef3d167a25d28a9b033ee0"></a><!-- doxytag: member="procleash.h::procl_deny" ref="88cdf33c76ef3d167a25d28a9b033ee0" args="(int syscall, struct procl_leash *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void procl_deny           </td>
+          <td>(</td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>syscall</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zabrania na wywolanie konkretnej funkcji systemowej <dl compact><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em><a class="el" href="structsyscall.html">syscall</a></em>&nbsp;</td><td>numer funkcji ktora chcemy zabronic </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>smycz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="941817c4073adc19fd25cefa2e0b8245"></a><!-- doxytag: member="procleash.h::procl_denyall" ref="941817c4073adc19fd25cefa2e0b8245" args="(struct procl_leash *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void procl_denyall           </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zabrania na wykonywanie jakiejkolwiek funkcji systemowej procesowi bedacemu na smyczy. Nalezy wykonac je przed uzyciem procleash (ewentualnie wykonac allowall). Funckja resetuje flagi na smyczy oraz wszystkie limity <dl compact><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>smycz </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="b678388efe217f95e18812bba2ef4cb9"></a><!-- doxytag: member="procleash.h::procleash" ref="b678388efe217f95e18812bba2ef4cb9" args="(const char *path, char *const arg[], struct procl_leash *data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int procleash           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *const &nbsp;</td>
+          <td class="paramname"> <em>arg</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structprocl__leash.html">procl_leash</a> *&nbsp;</td>
+          <td class="paramname"> <em>data</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Uruchamia proces "na smyczy" kontrolujac wszytkie wywolania funkcji systemowych. <dl compact><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>path</em>&nbsp;</td><td>sciezka pliku wykonywalnego </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>arg</em>&nbsp;</td><td>argumenty dla uruchamianego procesu (podobnie jak w funkcji execl) </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>data</em>&nbsp;</td><td>smycz </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Zwraca:</b></dt><dd>zwraca 0 jesli wszystko pojdzie wporzadku, jeden z bledow z procl_errors lub liczbe dodatnia oznaczajaca numer funkcji systemowej na ktorej proces zostal zatrzymany. W strukturze data zostaje zapisany kod wyjscia procesu </dd></dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="text-align: right;"><small>Wygenerowano Tue Jan 22 22:33:19 2008 dla procleash programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.4 </small></address>
+</body>
+</html>

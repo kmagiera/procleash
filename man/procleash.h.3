@@ -1,0 +1,151 @@
+.TH "src/procleash.h" 3 "22 Jan 2008" "Version 1.1" "procleash" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+procleash.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <sys/types.h>\fP
+.br
+\fC#include <stdint.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBprocl_leash\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBprocl_flags\fP { \fBPLF_CLOSESTDIN\fP =  1, \fBPLF_CLOSESTDOUT\fP =  1<<1, \fBPLF_CLOSESTDERR\fP =  1<<2, \fBPLF_TRYCONTINUE\fP =  1<<3 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprocl_allow\fP (int \fBsyscall\fP, uint32_t times, struct \fBprocl_leash\fP *data)"
+.br
+.ti -1c
+.RI "void \fBprocl_deny\fP (int \fBsyscall\fP, struct \fBprocl_leash\fP *data)"
+.br
+.ti -1c
+.RI "void \fBprocl_allowall\fP (struct \fBprocl_leash\fP *data)"
+.br
+.ti -1c
+.RI "void \fBprocl_denyall\fP (struct \fBprocl_leash\fP *data)"
+.br
+.ti -1c
+.RI "int \fBprocleash\fP (const char *path, char *const arg[], struct \fBprocl_leash\fP *data)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBVersion:\fP
+.RS 4
+1.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Krzysztof Magiera <magiera@student.agh.edu.pl>
+.RE
+.PP
+Biblioteka procleash wspiera uruchamianie procesów 'na smyczy' tzn pod ściśle ustaloną ochroną.
+.PP
+Procesy uruchamiamy za pomocą funkcji procleash, przekazujac odpowiednie parametry odnośnie programu, który uruchamiamy, oraz smycz, która ustala to, co wolno, a czemu nie wolno procesowi działającemu na niej.
+.PP
+Smyczy możemy określić * Czas trwania naszego programu * Pamiec wirtualna ktora mozemy mu przydzielic * Wielkosc stosu na ktorej moze operowac * Funkcje systemowe ktore moze wykonywac * Krotnosc wywolan funkcji systemowych * i wiele innych ;) 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBprocl_flags\fP"
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIPLF_CLOSESTDIN \fP\fP
+proces na smyczy bedzie mial zamkniete STDIN 
+.TP
+\fB\fIPLF_CLOSESTDOUT \fP\fP
+proces na smyczy bedzie mial zamkniete STDOUT 
+.TP
+\fB\fIPLF_CLOSESTDERR \fP\fP
+proces na smyczy bedzie mial zamkniete STDERR 
+.TP
+\fB\fIPLF_TRYCONTINUE \fP\fP
+nadzorca nie konczy procesu, gdy ten wywola niepoprawna funkcje systemowa 
+.SH "Function Documentation"
+.PP 
+.SS "void procl_allow (int syscall, uint32_t times, struct \fBprocl_leash\fP * data)"
+.PP
+Ustawia pozwolenie dla funkcji systemowej 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fBsyscall\fP\fP numer funkcji systemowej 
+.br
+\fItimes\fP liczba zezwolonych wywolan (lub stala PL_UNLIMITED) 
+.br
+\fIdata\fP smycz 
+.RE
+.PP
+
+.SS "void procl_allowall (struct \fBprocl_leash\fP * data)"
+.PP
+Ustawia pozwolenie dla wszystkich funkcji systemowych. Nalezy wykonac je przed uzyciem procleash (ewentualnie wykonac allowall). Funckja resetuje flagi na smyczy oraz wszystkie limity 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP smycz 
+.RE
+.PP
+
+.SS "void procl_deny (int syscall, struct \fBprocl_leash\fP * data)"
+.PP
+Zabrania na wywolanie konkretnej funkcji systemowej 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fBsyscall\fP\fP numer funkcji ktora chcemy zabronic 
+.br
+\fIdata\fP smycz 
+.RE
+.PP
+
+.SS "void procl_denyall (struct \fBprocl_leash\fP * data)"
+.PP
+Zabrania na wykonywanie jakiejkolwiek funkcji systemowej procesowi bedacemu na smyczy. Nalezy wykonac je przed uzyciem procleash (ewentualnie wykonac allowall). Funckja resetuje flagi na smyczy oraz wszystkie limity 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP smycz 
+.RE
+.PP
+
+.SS "int procleash (const char * path, char *const  arg[], struct \fBprocl_leash\fP * data)"
+.PP
+Uruchamia proces 'na smyczy' kontrolujac wszytkie wywolania funkcji systemowych. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpath\fP sciezka pliku wykonywalnego 
+.br
+\fIarg\fP argumenty dla uruchamianego procesu (podobnie jak w funkcji execl) 
+.br
+\fIdata\fP smycz 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+zwraca 0 jesli wszystko pojdzie wporzadku, jeden z bledow z procl_errors lub liczbe dodatnia oznaczajaca numer funkcji systemowej na ktorej proces zostal zatrzymany. W strukturze data zostaje zapisany kod wyjscia procesu 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for procleash from the source code.

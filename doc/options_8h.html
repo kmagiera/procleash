@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>procleash: Dokumentacja pliku src/options.h</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Wygenerowano przez Doxygen 1.5.4 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+    <li><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+    <li class="current"><a href="files.html"><span>Pliki</span></a></li>
+  </ul>
+</div>
+<h1>Dokumentacja pliku src/options.h</h1><code>#include &lt;sys/types.h&gt;</code><br>
+<code>#include &lt;stdint.h&gt;</code><br>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Struktury danych</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structoption__arg.html">option_arg</a></td></tr>
+
+<tr><td colspan="2"><br><h2>Wyliczenia</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8h.html#0a0e54190bb37af9be655ad962705c6c">option_event</a> { <a class="el" href="options_8h.html#0a0e54190bb37af9be655ad962705c6c2873d25935c07a6421295656e0e2abba">OE_ESSENTIAL</a> =  1, 
+<a class="el" href="options_8h.html#0a0e54190bb37af9be655ad962705c6c10ea0641128ac2903c70687f21b7a9d5">OE_VALUE</a> =  2, 
+<a class="el" href="options_8h.html#0a0e54190bb37af9be655ad962705c6c5465d5e416228f030cb845957083249c">OE_FVALUE</a> =  4, 
+<a class="el" href="options_8h.html#0a0e54190bb37af9be655ad962705c6c31dab3c43550eb5e002cf5aab5e2f2a7">OE_PREFIX</a> =  8
+ }</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecb">option_revent</a> { <br>
+&nbsp;&nbsp;<a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecba31082ca282b3d51cbfb23d37d1dc414">OR_EXISTS</a> =  1, 
+<a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecbe03fbbb136ae361b0855a1354e2d7d8b">OR_HASVALUE</a> =  2, 
+<a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecbf893cef6c0476d4f815a7496e99e5e49">OR_NOTFOUND</a> =  4, 
+<a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecb9f3247cb765639c72b13a940eb169bc8">OR_NOVALUE</a> =  8, 
+<br>
+&nbsp;&nbsp;<a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecb3c22869f2bfdd1e9542750463409dd4c">OR_POSTFIX</a> =  16
+<br>
+ }</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8h.html#b99ffca2f283ae78e2e30e9134fa127d">option_errors</a> { <a class="el" href="options_8h.html#b99ffca2f283ae78e2e30e9134fa127d399828b5ffe44b3bdde832f68647edfd">OE_ARGABSENT</a>, 
+<a class="el" href="options_8h.html#b99ffca2f283ae78e2e30e9134fa127de367b9b227db5a0fbae45c6ec92ce316">OE_ARGUNVALUED</a>
+ }</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8h.html#0042f4ead86b209e8ceb5c8e26c8c482">option_type</a> { <a class="el" href="options_8h.html#0042f4ead86b209e8ceb5c8e26c8c4822ba462438d5e8f44b8cdfd2a82f79685">OT_SHORT</a>, 
+<a class="el" href="options_8h.html#0042f4ead86b209e8ceb5c8e26c8c482fb0706a876514a72151299518f514880">OT_LONG</a>
+ }</td></tr>
+
+<tr><td colspan="2"><br><h2>Funkcje</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8h.html#af29103c05f071b14b5acf03bf3bb37e">option_convert</a> (char **argv, size_t argc, struct <a class="el" href="structoption__arg.html">option_arg</a> *args, size_t argspsiz, size_t *argsvsiz, char **unrec, size_t *unrecsiz)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct <a class="el" href="structoption__arg.html">option_arg</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="options_8h.html#ede774e35f1523681da0544f7a5ccc79">option_errarg</a> ()</td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Opis szczegółowy</h2>
+<dl class="version" compact><dt><b>Wersja:</b></dt><dd>1.0 </dd></dl>
+<dl class="author" compact><dt><b>Autor:</b></dt><dd>Krzysztof Magiera &lt;<a href="mailto:magiera@student.agh.edu.pl">magiera@student.agh.edu.pl</a>&gt;</dd></dl>
+Biblioteka options wspiera przetwarzanie argumentow przekazanych ze srodowiska do naszego programu.<p>
+Argumenty dzielimy na dwa podstawowe typy: * argumenty dlugie (takie po podwujnej kresce np: --order) * argumenty krotkie (wystepuja po pojedynczej kresce '-a' lub w ciagu argumentow '-avf')<p>
+Dzieki tej bibliotece mozemy wylawiac argumenty krotkie i ich wartosci. Mozemy takze wylapywac argumenty prefiksowe tj. takie w ktorych znamy tylko poczatek. Na przyklad jesli argument '--with-' oznaczymy jako prefixowy, to po podaniu --with-mod lub --with-user jako wartosci tych argumentow otrzymamy 'mod' i 'user' <hr><h2>Dokumentacja typów wyliczanych</h2>
+<a class="anchor" name="b99ffca2f283ae78e2e30e9134fa127d"></a><!-- doxytag: member="options.h::option_errors" ref="b99ffca2f283ae78e2e30e9134fa127d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="options_8h.html#b99ffca2f283ae78e2e30e9134fa127d">option_errors</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Wartości wyliczeń: </b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" name="b99ffca2f283ae78e2e30e9134fa127d399828b5ffe44b3bdde832f68647edfd"></a><!-- doxytag: member="OE_ARGABSENT" ref="b99ffca2f283ae78e2e30e9134fa127d399828b5ffe44b3bdde832f68647edfd" args="" -->OE_ARGABSENT</em>&nbsp;</td><td>
+gdy ktorys z wymaganych argumentow nie byl obecny </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="b99ffca2f283ae78e2e30e9134fa127de367b9b227db5a0fbae45c6ec92ce316"></a><!-- doxytag: member="OE_ARGUNVALUED" ref="b99ffca2f283ae78e2e30e9134fa127de367b9b227db5a0fbae45c6ec92ce316" args="" -->OE_ARGUNVALUED</em>&nbsp;</td><td>
+gdy ktorys z argumentow z wymagana wartoscia nie mial wartosci </td></tr>
+</table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="0a0e54190bb37af9be655ad962705c6c"></a><!-- doxytag: member="options.h::option_event" ref="0a0e54190bb37af9be655ad962705c6c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="options_8h.html#0a0e54190bb37af9be655ad962705c6c">option_event</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Wartości wyliczeń: </b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" name="0a0e54190bb37af9be655ad962705c6c2873d25935c07a6421295656e0e2abba"></a><!-- doxytag: member="OE_ESSENTIAL" ref="0a0e54190bb37af9be655ad962705c6c2873d25935c07a6421295656e0e2abba" args="" -->OE_ESSENTIAL</em>&nbsp;</td><td>
+argument jest wymagany </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="0a0e54190bb37af9be655ad962705c6c10ea0641128ac2903c70687f21b7a9d5"></a><!-- doxytag: member="OE_VALUE" ref="0a0e54190bb37af9be655ad962705c6c10ea0641128ac2903c70687f21b7a9d5" args="" -->OE_VALUE</em>&nbsp;</td><td>
+argument moze miec wartosc </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="0a0e54190bb37af9be655ad962705c6c5465d5e416228f030cb845957083249c"></a><!-- doxytag: member="OE_FVALUE" ref="0a0e54190bb37af9be655ad962705c6c5465d5e416228f030cb845957083249c" args="" -->OE_FVALUE</em>&nbsp;</td><td>
+argument musi posiadać wartosc </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="0a0e54190bb37af9be655ad962705c6c31dab3c43550eb5e002cf5aab5e2f2a7"></a><!-- doxytag: member="OE_PREFIX" ref="0a0e54190bb37af9be655ad962705c6c31dab3c43550eb5e002cf5aab5e2f2a7" args="" -->OE_PREFIX</em>&nbsp;</td><td>
+podany argument moze byc traktowany jako prefix </td></tr>
+</table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="2ec2e860848acd1a96357dbff181fecb"></a><!-- doxytag: member="options.h::option_revent" ref="2ec2e860848acd1a96357dbff181fecb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="options_8h.html#2ec2e860848acd1a96357dbff181fecb">option_revent</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Wartości wyliczeń: </b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" name="2ec2e860848acd1a96357dbff181fecba31082ca282b3d51cbfb23d37d1dc414"></a><!-- doxytag: member="OR_EXISTS" ref="2ec2e860848acd1a96357dbff181fecba31082ca282b3d51cbfb23d37d1dc414" args="" -->OR_EXISTS</em>&nbsp;</td><td>
+argument pojawil sie w liscie argumentow </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="2ec2e860848acd1a96357dbff181fecbe03fbbb136ae361b0855a1354e2d7d8b"></a><!-- doxytag: member="OR_HASVALUE" ref="2ec2e860848acd1a96357dbff181fecbe03fbbb136ae361b0855a1354e2d7d8b" args="" -->OR_HASVALUE</em>&nbsp;</td><td>
+argument posiada wartosc </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="2ec2e860848acd1a96357dbff181fecbf893cef6c0476d4f815a7496e99e5e49"></a><!-- doxytag: member="OR_NOTFOUND" ref="2ec2e860848acd1a96357dbff181fecbf893cef6c0476d4f815a7496e99e5e49" args="" -->OR_NOTFOUND</em>&nbsp;</td><td>
+argument nie zostal odnaleziony w liscie </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="2ec2e860848acd1a96357dbff181fecb9f3247cb765639c72b13a940eb169bc8"></a><!-- doxytag: member="OR_NOVALUE" ref="2ec2e860848acd1a96357dbff181fecb9f3247cb765639c72b13a940eb169bc8" args="" -->OR_NOVALUE</em>&nbsp;</td><td>
+argument nie posiada wartosci </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="2ec2e860848acd1a96357dbff181fecb3c22869f2bfdd1e9542750463409dd4c"></a><!-- doxytag: member="OR_POSTFIX" ref="2ec2e860848acd1a96357dbff181fecb3c22869f2bfdd1e9542750463409dd4c" args="" -->OR_POSTFIX</em>&nbsp;</td><td>
+wartosc jest postfixem argumentu </td></tr>
+</table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="0042f4ead86b209e8ceb5c8e26c8c482"></a><!-- doxytag: member="options.h::option_type" ref="0042f4ead86b209e8ceb5c8e26c8c482" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="options_8h.html#0042f4ead86b209e8ceb5c8e26c8c482">option_type</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Wartości wyliczeń: </b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" name="0042f4ead86b209e8ceb5c8e26c8c4822ba462438d5e8f44b8cdfd2a82f79685"></a><!-- doxytag: member="OT_SHORT" ref="0042f4ead86b209e8ceb5c8e26c8c4822ba462438d5e8f44b8cdfd2a82f79685" args="" -->OT_SHORT</em>&nbsp;</td><td>
+argument krotki </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="0042f4ead86b209e8ceb5c8e26c8c482fb0706a876514a72151299518f514880"></a><!-- doxytag: member="OT_LONG" ref="0042f4ead86b209e8ceb5c8e26c8c482fb0706a876514a72151299518f514880" args="" -->OT_LONG</em>&nbsp;</td><td>
+argument dlugi </td></tr>
+</table>
+</dl>
+
+</div>
+</div><p>
+<hr><h2>Dokumentacja funkcji</h2>
+<a class="anchor" name="af29103c05f071b14b5acf03bf3bb37e"></a><!-- doxytag: member="options.h::option_convert" ref="af29103c05f071b14b5acf03bf3bb37e" args="(char **argv, size_t argc, struct option_arg *args, size_t argspsiz, size_t *argsvsiz, char **unrec, size_t *unrecsiz)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int option_convert           </td>
+          <td>(</td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structoption__arg.html">option_arg</a> *&nbsp;</td>
+          <td class="paramname"> <em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>argspsiz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&nbsp;</td>
+          <td class="paramname"> <em>argsvsiz</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&nbsp;</td>
+          <td class="paramname"> <em>unrec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t *&nbsp;</td>
+          <td class="paramname"> <em>unrecsiz</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Przetwarza argumenty ze standardowego wektora argumentow do tablicy struktur <a class="el" href="structoption__arg.html">option_arg</a> <dl compact><dt><b>Parametry:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>argv</em>&nbsp;</td><td>standardowy wektor argumentow </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>argc</em>&nbsp;</td><td>dlugosc wektora argumentow </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>args</em>&nbsp;</td><td>wektor ze strukturami <a class="el" href="structoption__arg.html">option_arg</a> </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>argspsiz</em>&nbsp;</td><td>ilosc danych w wektorze args </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>argsvsiz</em>&nbsp;</td><td>ilosc miejsca w wektorze args, ktore bedzie zapelniane dodatkowymi argumentami prefiksowymi (jesli pojawia sie wiecej niz raz) argument przekazany pod argsvsiz zmieni swoja wielkosc na calkowita zapelniona wielkosc wektora args </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>unrec</em>&nbsp;</td><td>wekrot z argumentami nierozpoznanymi </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>unrecsiz</em>&nbsp;</td><td>parametr-wynik - wielkosc wektora argumentow nierozpoznanych </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Zwraca:</b></dt><dd>zwraca 0 jesli wszystko przebiegnie poprawnie lub jedna z wartosci z option_errors w przypadku bledu </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ede774e35f1523681da0544f7a5ccc79"></a><!-- doxytag: member="options.h::option_errarg" ref="ede774e35f1523681da0544f7a5ccc79" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structoption__arg.html">option_arg</a>* option_errarg           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Zwraca argument, dla ktorego wystapil blad przy przetwarzaniu <dl class="return" compact><dt><b>Zwraca:</b></dt><dd>wskaznik na blednie przetworzony argument </dd></dl>
+
+</div>
+</div><p>
+<hr size="1"><address style="text-align: right;"><small>Wygenerowano Tue Jan 22 22:33:19 2008 dla procleash programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.4 </small></address>
+</body>
+</html>

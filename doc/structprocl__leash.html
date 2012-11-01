@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>procleash: Dokumentacja struktury procl_leash</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<!-- Wygenerowano przez Doxygen 1.5.4 -->
+<div class="tabs">
+  <ul>
+    <li><a href="main.html"><span>Strona&nbsp;główna</span></a></li>
+    <li class="current"><a href="annotated.html"><span>Struktury&nbsp;Danych</span></a></li>
+    <li><a href="files.html"><span>Pliki</span></a></li>
+  </ul>
+</div>
+<div class="tabs">
+  <ul>
+    <li><a href="annotated.html"><span>Struktury&nbsp;danych</span></a></li>
+    <li><a href="functions.html"><span>Pola&nbsp;danych</span></a></li>
+  </ul>
+</div>
+<h1>Dokumentacja struktury procl_leash</h1><!-- doxytag: class="procl_leash" --><code>#include &lt;procleash.h&gt;</code>
+<p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td></td></tr>
+<tr><td colspan="2"><br><h2>Pola danych</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">struct procl_limits&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprocl__leash.html#18b4d59e0be9cd6d833734a1e884a22e">limits</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprocl__leash.html#6fcb6e87575c2a0baceb4b893ddb0bfd">syscalls</a> [SYSCALL_VECTOR_SIZE]</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">uint32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprocl__leash.html#8a1d4ca7f9f942c62b102cc01f17099d">flags</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">int32_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprocl__leash.html#07322983d5a7bca339a8a89bed86bd68">retcode</a></td></tr>
+
+</table>
+<hr><a name="_details"></a><h2>Opis szczegółowy</h2>
+Smycz na ktorej mozemy wyprowadzac proces <hr><h2>Dokumentacja pól</h2>
+<a class="anchor" name="18b4d59e0be9cd6d833734a1e884a22e"></a><!-- doxytag: member="procl_leash::limits" ref="18b4d59e0be9cd6d833734a1e884a22e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct procl_limits <a class="el" href="structprocl__leash.html#18b4d59e0be9cd6d833734a1e884a22e">procl_leash::limits</a><code> [read]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+limity 
+</div>
+</div><p>
+<a class="anchor" name="6fcb6e87575c2a0baceb4b893ddb0bfd"></a><!-- doxytag: member="procl_leash::syscalls" ref="6fcb6e87575c2a0baceb4b893ddb0bfd" args="[SYSCALL_VECTOR_SIZE]" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="structprocl__leash.html#6fcb6e87575c2a0baceb4b893ddb0bfd">procl_leash::syscalls</a>[SYSCALL_VECTOR_SIZE]          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+tablica z dopuszczonymi funkcjami systemowymi 
+</div>
+</div><p>
+<a class="anchor" name="8a1d4ca7f9f942c62b102cc01f17099d"></a><!-- doxytag: member="procl_leash::flags" ref="8a1d4ca7f9f942c62b102cc01f17099d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="structprocl__leash.html#8a1d4ca7f9f942c62b102cc01f17099d">procl_leash::flags</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+dodatkowe flagi z procl_flags 
+</div>
+</div><p>
+<a class="anchor" name="07322983d5a7bca339a8a89bed86bd68"></a><!-- doxytag: member="procl_leash::retcode" ref="07322983d5a7bca339a8a89bed86bd68" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t <a class="el" href="structprocl__leash.html#07322983d5a7bca339a8a89bed86bd68">procl_leash::retcode</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+kod wyjscia (ustawiany przez procleash) 
+</div>
+</div><p>
+<hr>Dokumentacja dla tej struktury została wygenerowana z pliku:<ul>
+<li>src/<a class="el" href="procleash_8h.html">procleash.h</a></ul>
+<hr size="1"><address style="text-align: right;"><small>Wygenerowano Tue Jan 22 22:33:19 2008 dla procleash programem&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.4 </small></address>
+</body>
+</html>
