@@ -76,7 +76,7 @@ void f_configure(const char *fname, struct procl_leash *leash);
  */
 int main(int argc, char **argv) {
 
-	uint32_t	csiz = sizeof(args)/sizeof(struct option_arg), psiz = 20;
+	size_t	csiz = sizeof(args)/sizeof(struct option_arg), psiz = 20;
 	char*		pargv[20]; // wektor argumentow dla procesu strzezonego
 
 	if (option_convert(argv, argc, args, csiz-10, &csiz, pargv, &psiz) == OE_ARGUNVALUED) {
