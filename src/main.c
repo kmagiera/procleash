@@ -2,7 +2,7 @@
  * @file main.c
  * @version 1.0
  * @author Krzysztof Magiera <magiera@student.agh.edu.pl>
- * 
+ *
  * Tool do obslugi biblioteki procleash - uruchamiania programów
  * na smyczy.
  */
@@ -18,7 +18,7 @@
 #include "procleash.h"
 
 struct option_arg args[] = {
-	
+
 	{OT_SHORT, 'h', 0},								// h -- wyswietla pomoc
 	{OT_LONG, .argument.strarg = "version",0},		// version -- wyswietla informacje o wersji
 	{OT_SHORT, 'v', 0},								// v -- tryb gadatliwy
@@ -36,7 +36,7 @@ struct option_arg args[] = {
 	{OT_LONG, .argument.strarg = "allow=",
 		OE_FVALUE | OE_PREFIX},						// allow=syscall[,times] -- zezwol na funkcje syscall times razy
 	{OT_LONG, .argument.strarg = "deny=",
-		OE_FVALUE | OE_PREFIX},						// deny=syscal -- zabrania na uzycie syscall 
+		OE_FVALUE | OE_PREFIX},						// deny=syscal -- zabrania na uzycie syscall
 	{},{},{},{},{},{},{},{},{},{}					// puste miejsce na komendy
 
 };
@@ -58,10 +58,10 @@ const struct syscall {
 	{"unlink",		__NR_unlink},
 	{"execve",		__NR_execve},
 	{"kill",		__NR_kill},
-	{"sigaction",	__NR_sigaction},
-	{"signal",		__NR_signal},
+	//{"sigaction",	__NR_sigaction},
+	//{"signal",		__NR_signal},
 	{"fcntl",		__NR_fcntl},
-	{"socketcall",	__NR_socketcall},
+	//{"socketcall",	__NR_socketcall},
 	{"fstat",		__NR_fstat},
 	{"flock",		__NR_flock}
 };
@@ -72,13 +72,13 @@ void a_configure(struct option_arg *argv, size_t argc, struct procl_leash *leash
 void f_configure(const char *fname, struct procl_leash *leash);
 
 /**
- * 
+ *
  */
 int main(int argc, char **argv) {
-	
+
 	uint32_t	csiz = sizeof(args)/sizeof(struct option_arg), psiz = 20;
-	char*		pargv[20]; // wektor argumentow dla procesu strzezonego 
-	
+	char*		pargv[20]; // wektor argumentow dla procesu strzezonego
+
 	if (option_convert(argv, argc, args, csiz-10, &csiz, pargv, &psiz) == OE_ARGUNVALUED) {
 		// ktoras z wartosci nie byla przedstawiona
 		struct option_arg *err = option_errarg();
@@ -92,13 +92,13 @@ int main(int argc, char **argv) {
 		}
 		exit(EXIT_FAILURE);
 	}
-	
+
 	/* przetwarzamy help i version */
 	if (args[0].revent & OR_EXISTS)
 		display_help(argv[0]);
 	if (args[1].revent & OR_EXISTS)
 		display_version();
-	
+
 	/* sprawdzamy, czy mamy co uruchamiac */
 	struct stat tmp;
 	if (psiz == 0 || stat(pargv[0], &tmp) != 0) {
@@ -107,26 +107,26 @@ int main(int argc, char **argv) {
 		else
 			fprintf(stderr, "Nie można odnaleźć pliku %s\nUżyj %s -h, aby zobaczyć pomoc\n",
 						pargv[0], argv[0]);
-		exit(EXIT_FAILURE); 
+		exit(EXIT_FAILURE);
 	}
-	
+
 	/* przetwarzamy verbose */
 	int verbose = 0;
 	if (args[2].revent & OR_EXISTS)
 		verbose = 1;
-	
+
 	/* tworzymy nowa smycz */
 	struct procl_leash leash;
-	
+
 	/* domyslnie kolejnosc allow-deny */
 	procl_allowall(&leash);
-	
+
 	/* jesli jest -f, to czytamy z pliku, jesli nie, to z argumentow */
 	if (args[3].revent & OR_EXISTS) {
 		f_configure(args[3].value, &leash);
 	}
 	a_configure(args, csiz, &leash);
-	
+
 	/* odpalamy program */
 	int ret = 0;
 	if ((ret = procleash(pargv[0], pargv, &leash)) != 0) {
@@ -162,15 +162,15 @@ int main(int argc, char **argv) {
 		}
 	}
 	exit(ret);
-	
+
 }
 
 /**
  * Rozpoznaje numer funkcji systemowej po nazwie
- * 
+ *
  */
 int syscall_toi(const char *syscall) {
-	
+
 	int i, len = sizeof(syscalls)/sizeof(struct syscall);
 	for (i = 0; i < len; i++) {
 		if (strcmp(syscalls[i].name, syscall) == 0) {
@@ -184,11 +184,11 @@ int syscall_toi(const char *syscall) {
  * Czyta konfiguracje ze struktury argumentow
  */
 void a_configure(struct option_arg *argv, size_t argc, struct procl_leash *leash) {
-	
+
 	/* sprawdzamy, czy ktos chce zmieniac order */
 	if (args[8].revent & OR_EXISTS)
 		procl_denyall(leash);
-	
+
 	/* przetwarzamy limity */
 	if (argv[4].revent & OR_HASVALUE) {
 		leash->limits.time = atoi(argv[4].value);
@@ -202,7 +202,7 @@ void a_configure(struct option_arg *argv, size_t argc, struct procl_leash *leash
 	if (argv[7].revent & OR_HASVALUE) {
 		leash->limits.fout = atoi(argv[7].value);
 	}
-	
+
 	/* przetwazamy pozostale */
 	int i;
 	char *token;
@@ -210,10 +210,10 @@ void a_configure(struct option_arg *argv, size_t argc, struct procl_leash *leash
 	for(i = 0; i < argc; i++) {
 		//if (argv[i].argtype == OT_LONG) printf("analizuje %s\n", argv[i].argument.strarg);
 		if (argv[i].argtype != OT_LONG || (argv[i].revent & OR_NOVALUE)) continue;
-		
+
 		callnum = -1;
 		times = PL_UNLIMITED;
-		
+
 		if (strncmp(argv[i].argument.strarg, "allow=", 6) == 0) {
 			token = strtok(argv[i].value, ",");
 			if (token != NULL) {
@@ -224,9 +224,9 @@ void a_configure(struct option_arg *argv, size_t argc, struct procl_leash *leash
 				times = atoi(token);
 			}
 			procl_allow(callnum, times, leash);
-			
+
 		}
-		
+
 		else if (strncmp(argv[i].argument.strarg, "allow-", 6) == 0) {
 			token = strtok(argv[i].value, ",");
 			if (token != NULL) {
@@ -237,68 +237,68 @@ void a_configure(struct option_arg *argv, size_t argc, struct procl_leash *leash
 				times = atoi(token);
 			}
 			procl_allow(callnum, times, leash);
-			
+
 		}
-		
+
 		else if (strncmp(argv[i].argument.strarg, "deny=", 6) == 0) {
 			callnum = atoi(argv[i].value);
 			procl_deny(callnum, leash);
-			
+
 		}
-		
+
 		else if (strncmp(argv[i].argument.strarg, "deny-", 6) == 0) {
 			callnum = syscall_toi(argv[i].value);
 			procl_deny(callnum, leash);
 		}
-		
+
 	}
-	
+
 }
 
 /**
  * Czyta konfiguracje z pliku.
  * Plik konfiguracyjny moze skladac sie z nastepujacych elementow:
- * 
+ *
  * # - na poczatku linii oznacza, ze dana linia nie jest interpretowana
- * 
+ *
  * order deny-allow - oznacza, ze przyjmujemy kolejnosc deny-allow
- * 
+ *
  * allow name [times] - zezwalamy funkcje systemowa name times razy
- * 
+ *
  * allow num [times] - podobnie, ale podajemy numer funkcji systemowej
- * 
+ *
  * deny num - zabraniamy funkcje o danym numerze
- * 
+ *
  * deny name - zabraniamy funkcje identyfikowana przez nazwe name
- * 
+ *
  * timelimit num - limit czasu
- * 
+ *
  * stacklimit num - limit na stos
- * 
+ *
  * outputlimit num - limit na wyjscie
- * 
+ *
  * memlimit num - limit czasu
- * 
+ *
  */
 void f_configure(const char *fname, struct procl_leash *leash) {
-	
+
 	FILE *conf;
 	char buf[30], str[30];
 	int syscall, times, line = 0;
-	
+
 	if ((conf = fopen(fname, "r")) == NULL) {
 		fprintf(stderr, "Nie można otworzyć pliku z konfiguracją (%s)\n", fname);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	while (fgets(buf, 30, conf) != NULL) {
-		
+
 		line++;
-		
+
 		if (sscanf(buf, "%s", str) < 1) continue;
-		
+
 		if (str[0] == '#') continue; // komentarz
-		
+
 		if (strcmp("allow", str) == 0) {
 			sscanf(buf, "%*s %s", str);
 			syscall = syscall_toi(str);
@@ -308,58 +308,58 @@ void f_configure(const char *fname, struct procl_leash *leash) {
 			}
 			procl_allow(syscall, times, leash);
 		}
-		
+
 		else if (strcmp("deny", str) == 0) {
 			sscanf(buf, "%*s %s", str);
 			syscall = syscall_toi(str);
 			if (syscall < 0) syscall = atoi(str);
 			procl_deny(syscall, leash);
 		}
-		
+
 		else if (strcmp("order", str) == 0) {
 			sscanf(buf, "%*s %s", str);
 			if (strcmp(str, "deny-allow") == 0) {
 				procl_denyall(leash);
 			}
 		}
-		
+
 		else if (strcmp("timelimit", str) == 0) {
 			sscanf(buf, "%*s %d", &times);
 			leash->limits.time = times;
 		}
-		
+
 		else if (strcmp("memlimit", str) == 0) {
 			sscanf(buf, "%*s %d", &times);
 			leash->limits.vm = times;
 		}
-		
+
 		else if (strcmp("stacklimit", str) == 0) {
 			sscanf(buf, "%*s %d", &times);
 			leash->limits.stack = times;
 		}
-		
+
 		else if (strcmp("outputlimit", str) == 0) {
 			sscanf(buf, "%*s %d", &times);
 			leash->limits.fout = times;
 		}
-		
+
 		else {
-			fprintf(stderr, "Błąd w trakcie przetwarzania pliku konfiguracyjnego (%s:%d)\n", 
+			fprintf(stderr, "Błąd w trakcie przetwarzania pliku konfiguracyjnego (%s:%d)\n",
 					fname, line);
 		}
-		
+
 	}
-	
+
 	fclose(conf);
-	
+
 }
 
 /**
  * Wyświetla pomoc
  */
 void display_help(char *pname) {
-	
-	static const char* help = 
+
+	static const char* help =
 		"PROCLEASH (C) Krzysztof Magiera <magiera@student.agh.edu.pl>\n"
 		"Użycie: %s [options] program [-- [program_arguments]]\n"
 		"  Uruchamia program w odpowiednio skonfigurowanym środkowisku\n"
@@ -390,25 +390,25 @@ void display_help(char *pname) {
 		"Funkcje dotępne poprzez nazwy:\n"
 		"%s\n"
 		"Pełna lista numerów funkcji znajduje się w nagłówku <linux/unistd.h>\n";
-	
+
 	int scnames = 0, i, siz = sizeof(syscalls)/sizeof(struct syscall);
 	for (i = 0; i < siz; i++) {
 		scnames += strlen(syscalls[i].name) + 3;
 	}
-	
+
 	char *schelp;
 	if ((schelp = malloc(scnames+1)) == NULL) exit(EXIT_FAILURE);
-	
+
 	scnames = 0;
 	for (i = 0; i < siz; i++) {
 		sprintf(schelp+scnames, "  %s\n", syscalls[i].name);
 		scnames += strlen(syscalls[i].name) + 3;
 	}
-	
+
 	printf(help, pname, schelp);
-	
+
 	free(schelp);
-	
+
 	exit(EXIT_SUCCESS);
 }
 
@@ -416,11 +416,11 @@ void display_help(char *pname) {
  * Wyswietla informacje o wersji
  */
 void display_version() {
-	
-	static const char* versioninfo = 
+
+	static const char* versioninfo =
 		"PROCLEASH 1.0 (2008.01.19)\n";
-	
+
 	printf(versioninfo);
-	
+
 	exit(EXIT_SUCCESS);
 }
